@@ -1,0 +1,10 @@
+[core]
+    autocrlf = input
+    excludesfile = ~/.gitignore
+[user]
+    name = Luis Enrique
+    email = luisenrike9303@gmail.com
+[credential]
+    helper = store
+[alias]
+    gl = log --graph --pretty=format:'%C(auto)%h%d - %C(32)%an%Creset, %C(34)%ar %Creset: %s' --all
