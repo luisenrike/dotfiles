@@ -1,9 +1,10 @@
 [core]
     autocrlf = input
     excludesfile = ~/.gitignore
+    editor = nvim
 [user]
     name = Luis Enrique
-    email = luisenrike9303@gmail.com
+    email = luisenrike@leddgroup.com
 [credential]
     helper = store
 [alias]
