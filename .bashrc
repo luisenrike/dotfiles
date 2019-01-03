@@ -1,5 +1,3 @@
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-
 [[ -s "$HOME/.profile" ]] && source "$HOME/.profile"
 
 # added by travis gem
