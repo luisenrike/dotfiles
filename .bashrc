@@ -2,7 +2,6 @@
 
 [[ -s "$HOME/.profile" ]] && source "$HOME/.profile"
 
-
 # added by travis gem
 [ -f /Users/luis/.travis/travis.sh ] && source /Users/luis/.travis/travis.sh
 
@@ -19,10 +18,6 @@ export PATH="$PATH:$ANDROID_HOME/tools"
 export PATH="$PATH:$ANDROID_HOME/platform-tools"
 
 export PATH=~/Downloads/flutter/bin:$PATH
-
-export EDITOR="emacs"
-
-alias vim='/usr/local/bin/vim'
 
 alias vim='nvim'
 alias rs='rails server'
