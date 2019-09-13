@@ -38,6 +38,7 @@ This function should only modify configuration layer settings."
      javascript
      html
      yaml
+     mu4e
      (helm :variables
            helm-no-header t)
      ruby-on-rails
@@ -51,8 +52,8 @@ This function should only modify configuration layer settings."
           git-magit-status-fullscreen t)
      markdown
      neotree
-     clojure
      org
+     finance
      ;; (shell :variables
      ;;        shell-default-height 30
      ;;        shell-default-position 'bottom)
@@ -71,7 +72,7 @@ This function should only modify configuration layer settings."
    ;; To use a local version of a package, use the `:location' property:
    ;; '(your-package :location "~/path/to/your-package/")
    ;; Also include the dependencies as they will not be resolved automatically.
-   dotspacemacs-additional-packages '()
+   dotspacemacs-additional-packages '(exec-path-from-shell)
 
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -461,6 +462,7 @@ before packages are loaded."
   (global-hl-line-mode -1)
   (golden-ratio-mode t)
   (setq neo-theme 'icons)
+  (exec-path-from-shell-initialize)
   )
 
 (defun dotspacemacs/emacs-custom-settings ()
@@ -474,17 +476,22 @@ This function is called at the very end of Spacemacs initialization."
    ;; Your init file should contain only one such instance.
    ;; If there is more than one, they won't work right.
    '(css-indent-offset 2)
-   '(org-agenda-files (quote ("~/sync/org/notes.org" "~/sync/org/work.org")))
+   '(ledger-post-amount-alignment-column 100)
+   '(org-agenda-files (quote ("~/sync/org/")))
    '(org-agenda-span (quote month))
-   '(org-capture-templates
+   '(org-babel-load-languages (quote ((ruby . t) (js . t) (emacs-lisp . t) (ledger . t))))
+   '(org-capture-templates (quote (("t" "TODO" entry (file "") "* TODO %?")
+                                   ("n" "NOTE" plain (file "~/sync/org/inbox.org") "%?"))))
+   '(org-default-notes-file "~/sync/org/todos.org")
+   '(org-modules
      (quote
-      (("t" "TODO" entry
-        (file+headline "" "TODOS")
-        "* TODO %?"))))
-   '(org-default-notes-file "~/sync/org/notes.org")
+      (org-bbdb org-bibtex org-docview org-eww org-gnus org-habit org-info org-irc org-mhe org-rmail org-w3m)))
+   '(org-todo-keywords
+     (quote
+      ((sequence "TODO(t)" "WAITING(w)" "|" "DONE(d)" "CANCELLED(c)"))))
    '(package-selected-packages
      (quote
-      (web-mode org-projectile json-mode helm-xref evil-nerd-commenter doom-modeline diff-hl define-word counsel-projectile counsel swiper ivy cider-eval-sexp-fu cider ace-window ace-link smartparens helm helm-core avy magit projectile inf-ruby powerline flycheck dash visual-fill-column org-plus-contrib yasnippet-snippets yaml-mode ws-butler writeroom-mode winum which-key web-beautify volatile-highlights vi-tilde-fringe uuidgen use-package toc-org tide tagedit symon string-inflection spaceline-all-the-icons smeargle slim-mode shrink-path sesman seeing-is-believing scss-mode sass-mode rvm ruby-tools ruby-test-mode ruby-refactor ruby-hash-syntax rubocop rspec-mode robe restart-emacs rbenv rainbow-delimiters queue pug-mode projectile-rails prettier-js popwin pkg-info persp-mode password-generator paradox orgit org-present org-pomodoro org-mime org-download org-category-capture org-bullets org-brain open-junk-file neotree move-text mmm-mode minitest markdown-toc magit-svn magit-gitflow lorem-ipsum livid-mode link-hint json-snatcher json-reformat json-navigator js2-refactor js-doc indent-guide impatient-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation highlight helm-themes helm-swoop helm-purpose helm-projectile helm-org-rifle helm-mode-manager helm-make helm-gitignore helm-git-grep helm-flx helm-descbinds helm-css-scss helm-company helm-c-yasnippet helm-ag google-translate golden-ratio gnuplot gitignore-templates gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe git-gutter-fringe+ gh-md fuzzy font-lock+ flx-ido fill-column-indicator feature-mode fancy-battery eyebrowse expand-region evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-org evil-numbers evil-matchit evil-magit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-goggles evil-exchange evil-escape evil-ediff evil-cleverparens evil-args evil-anzu eval-sexp-fu enh-ruby-mode emmet-mode eldoc-eval editorconfig dumb-jump dotenv-mode diminish csv-mode company-web company-tern company-statistics column-enforce-mode clojure-snippets clojure-mode clean-aindent-mode chruby centered-cursor-mode bundler browse-at-remote badwolf-theme auto-yasnippet auto-highlight-symbol aggressive-indent ace-jump-helm-line ac-ispell)))
+      (exec-path-from-shell reveal-in-osx-finder osx-trash osx-dictionary osx-clipboard launchctl web-mode org-projectile json-mode helm-xref evil-nerd-commenter doom-modeline diff-hl define-word counsel-projectile counsel swiper ivy cider-eval-sexp-fu cider ace-window ace-link smartparens helm helm-core avy magit projectile inf-ruby powerline flycheck dash visual-fill-column org-plus-contrib yasnippet-snippets yaml-mode ws-butler writeroom-mode winum which-key web-beautify volatile-highlights vi-tilde-fringe uuidgen use-package toc-org tide tagedit symon string-inflection spaceline-all-the-icons smeargle slim-mode shrink-path sesman seeing-is-believing scss-mode sass-mode rvm ruby-tools ruby-test-mode ruby-refactor ruby-hash-syntax rubocop rspec-mode robe restart-emacs rbenv rainbow-delimiters queue pug-mode projectile-rails prettier-js popwin pkg-info persp-mode password-generator paradox orgit org-present org-pomodoro org-mime org-download org-category-capture org-bullets org-brain open-junk-file neotree move-text mmm-mode minitest markdown-toc magit-svn magit-gitflow lorem-ipsum livid-mode link-hint json-snatcher json-reformat json-navigator js2-refactor js-doc indent-guide impatient-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation highlight helm-themes helm-swoop helm-purpose helm-projectile helm-org-rifle helm-mode-manager helm-make helm-gitignore helm-git-grep helm-flx helm-descbinds helm-css-scss helm-company helm-c-yasnippet helm-ag google-translate golden-ratio gnuplot gitignore-templates gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe git-gutter-fringe+ gh-md fuzzy font-lock+ flx-ido fill-column-indicator feature-mode fancy-battery eyebrowse expand-region evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-org evil-numbers evil-matchit evil-magit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-goggles evil-exchange evil-escape evil-ediff evil-cleverparens evil-args evil-anzu eval-sexp-fu enh-ruby-mode emmet-mode eldoc-eval editorconfig dumb-jump dotenv-mode diminish csv-mode company-web company-tern company-statistics column-enforce-mode clojure-snippets clojure-mode clean-aindent-mode chruby centered-cursor-mode bundler browse-at-remote badwolf-theme auto-yasnippet auto-highlight-symbol aggressive-indent ace-jump-helm-line ac-ispell)))
    '(typescript-indent-level 2)
    '(web-mode-code-indent-offset 2)
    '(web-mode-markup-indent-offset 2))
