@@ -1,16 +1,17 @@
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
-[ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
-[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
+[ -f $(brew --prefix)/etc/profile.d/autojump.sh ] && . $(brew --prefix)/etc/profile.d/autojump.sh
+[[ -r "$(brew --prefix)/etc/profile.d/bash_completion.sh" ]] && . "$(brew --prefix)/etc/profile.d/bash_completion.sh"
 
 # export PS1="\[\e[1;34m\]\w \[\e[1;32m\]\$(__git_ps1 '(%s)')\[\e[0m\]\n\\$: \[$(tput sgr0)\]"
 export PS1="\[\e[32m\]\w \[\e[31m\]\$(__git_ps1 '%s')\[\e[0m\]\n\\$: \[$(tput sgr0)\]"
-# export CLICOLOR=1
-# export LSCOLORS=ExFxBxDxCxegedabagacad
-
-alias ec='emacsclient'
-alias ls='ls -alGFh'
+export EDITOR=emacs
 
 set -o vi
+
+alias e='emacsclient -t'
+alias ec='emacsclient -c'
+# alias vim='emacsclient -t'
+# alias vi='emacsclient -t'
+alias ls='ls -alGFh'
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
