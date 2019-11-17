@@ -2,11 +2,13 @@ brew "autojump"
 brew "bash-completion"
 brew "git"
 brew "stow"
+brew "whichspace"
 
 tap "d12frosted/emacs-plus"
 brew "emacs-plus"
 
 tap "homebrew/cask"
+cask "amethyst"
 cask "firefox"
 cask "google-chrome"
 cask "macpass"
