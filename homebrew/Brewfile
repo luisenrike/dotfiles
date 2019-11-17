@@ -1,5 +1,7 @@
+brew "autojump"
 brew "bash-completion"
 brew "git"
+brew "stow"
 
 tap "d12frosted/emacs-plus"
 brew "emacs-plus"
@@ -10,3 +12,4 @@ cask "google-chrome"
 cask "macpass"
 cask "rectangle"
 cask "slack"
+cask "syncthing"

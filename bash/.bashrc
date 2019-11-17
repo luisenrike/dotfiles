@@ -1,6 +1,8 @@
 [ -f $(brew --prefix)/etc/profile.d/autojump.sh ] && . $(brew --prefix)/etc/profile.d/autojump.sh
 [[ -r "$(brew --prefix)/etc/profile.d/bash_completion.sh" ]] && . "$(brew --prefix)/etc/profile.d/bash_completion.sh"
 
+export BASH_SILENCE_DEPRECATION_WARNING=1
+
 # export PS1="\[\e[1;34m\]\w \[\e[1;32m\]\$(__git_ps1 '(%s)')\[\e[0m\]\n\\$: \[$(tput sgr0)\]"
 export PS1="\[\e[32m\]\w \[\e[31m\]\$(__git_ps1 '%s')\[\e[0m\]\n\\$: \[$(tput sgr0)\]"
 export EDITOR=emacs
