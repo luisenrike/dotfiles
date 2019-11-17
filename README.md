@@ -2,6 +2,8 @@
 
 `git clone git@github.com:luisenrike/dotfiles.git`
 
+`install stow`
+
 ## MacOS
 
 ### https://github.com/atomantic/dotfiles
