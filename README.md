@@ -1,5 +1,7 @@
 # dotfiles
 
+`git clone git@github.com:luisenrike/dotfiles.git`
+
 ## MacOS
 
 ### https://github.com/atomantic/dotfiles
