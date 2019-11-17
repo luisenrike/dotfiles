@@ -2,6 +2,8 @@
 
 ## MacOS
 
+### https://github.com/atomantic/dotfiles
+
 ### Homebrew
 * Install homebrew
 * `brew bundle install`
