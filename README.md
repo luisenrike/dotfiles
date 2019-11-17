@@ -2,6 +2,8 @@
 
 `git clone git@github.com:luisenrike/dotfiles.git`
 
+`install stow`
+
 ## MacOS
 
 ### https://github.com/atomantic/dotfiles
@@ -13,3 +15,4 @@
 ### Terminal
 * Download https://github.com/lysyi3m/macos-terminal-themes
 * Install wombat
+* Disable Automatically rearrange Spaces & Displays have separate Spaces in System Prefs > Mission Control 
