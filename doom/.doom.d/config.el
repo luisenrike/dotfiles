@@ -22,14 +22,36 @@
                   select-window-4
                   select-window-5))))
 
-(after! bongo
-  (setq bongo-default-directory "~/Music"
-        bongo-enabled-backends (quote (vlc))
-        bongo-vlc-extra-arguments (quote ("-Idummy"))))
+(map! :map bongo-playlist-mode-map
+      :n "<tab>" 'bongo-toggle-collapsed
+      :n "i"   'bongo-insert-directory
+      :n ">"   'bongo-play-next
+      :n "<"   'bongo-play-previous
+      :n "dd"  'bongo-kill-line
+      :v "d"   'bongo-kill-region
+      :n "p"   'bongo-play)
+
+(map! :localleader
+      :map bongo-library-mode-map
+      :desc "Insert Directory" "id" #'bongo-insert-directory)
+
+(map! :localleader
+      :map bongo-playlist-mode-map
+      :desc "Insert Directory" "id" #'bongo-insert-directory
+      :desc "Start/Stop"       "s" #'bongo-start/stop
+      :desc "Play Song"        "p" #'bongo-play)
 
 (map! :leader
-      :desc "Next Song" "abp" #'bongo-play-previous
-      :desc "Next Song" "abn" #'bongo-play-next)
+      :desc "Start - Stop"  "abs" #'bongo-start/stop
+      :desc "Show Playlist" "abp" #'bongo-playlist
+      :desc "Show Library"  "abl" #'bongo-library
+      :desc "Previous Song" "ab<" #'bongo-play-previous
+      :desc "Next Song"     "ab>" #'bongo-play-next)
+
+(after! bongo
+  (setq bongo-default-directory "~/Music"
+        bongo-logo nil
+        bongo-prefer-library-buffers nil))
 
 (after! treemacs
   (setq doom-themes-treemacs-theme "doom-colors"))
