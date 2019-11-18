@@ -4,6 +4,7 @@
 
 (setq
  doom-theme 'doom-peacock
+ +workspaces-on-switch-project-behavior nil
  org-directory "~/Sync/org")
 
 (use-package! golden-ratio
@@ -23,13 +24,17 @@
                   select-window-5))))
 
 (map! :map bongo-playlist-mode-map
+      :n "0"     'volume-minimize
+      :n "_"     'volume-maximize
+      :n "-"     'volume-lower-10
+      :n "+"     'volume-raise-10
       :n "<tab>" 'bongo-toggle-collapsed
-      :n "i"   'bongo-insert-directory
-      :n ">"   'bongo-play-next
-      :n "<"   'bongo-play-previous
-      :n "dd"  'bongo-kill-line
-      :v "d"   'bongo-kill-region
-      :n "p"   'bongo-play)
+      :n "i"     'bongo-insert-directory
+      :n ">"     'bongo-play-next
+      :n "<"     'bongo-play-previous
+      :n "dd"    'bongo-kill-line
+      :v "d"     'bongo-kill-region
+      :n "p"     'bongo-play)
 
 (map! :localleader
       :map bongo-library-mode-map

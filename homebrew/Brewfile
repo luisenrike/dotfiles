@@ -4,6 +4,7 @@ brew "git"
 brew "mas"
 brew "stow"
 brew "whichspace"
+brew "postgresql"
 
 tap "d12frosted/emacs-plus"
 brew "emacs-plus"

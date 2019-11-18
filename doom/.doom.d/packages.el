@@ -10,3 +10,4 @@
 (package! golden-ratio)
 
 (package! bongo)
+(package! volume)
