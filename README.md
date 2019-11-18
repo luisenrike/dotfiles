@@ -16,3 +16,4 @@
 * Download https://github.com/lysyi3m/macos-terminal-themes
 * Install wombat
 * Disable Automatically rearrange Spaces & Displays have separate Spaces in System Prefs > Mission Control 
+* Disable keyboard shortcuts (system preferences)
