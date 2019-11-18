@@ -1,6 +1,7 @@
 brew "autojump"
 brew "bash-completion"
 brew "git"
+brew "mas"
 brew "stow"
 brew "whichspace"
 
@@ -13,5 +14,8 @@ cask "firefox"
 cask "google-chrome"
 cask "macpass"
 cask "rectangle"
+cask "skitch"
 cask "slack"
 cask "syncthing"
+
+mas "Microsoft Remote Desktop 10", id: 1295203466

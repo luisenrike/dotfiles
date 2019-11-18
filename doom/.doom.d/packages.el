@@ -8,3 +8,5 @@
 
 (package! all-the-icons-ivy)
 (package! golden-ratio)
+
+(package! bongo)
