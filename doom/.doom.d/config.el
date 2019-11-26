@@ -6,6 +6,22 @@
  doom-theme 'doom-peacock
  +workspaces-on-switch-project-behavior nil)
 
+;; dired
+(map! :leader
+      :prefix "d"
+      "d" #'dired
+      "w" #'dired-other-window
+      "p" #'projectile-dired-other-window)
+
+(after! dired
+  (map! :map dired-mode-map
+        :n "h" #'dired-up-directory
+        :n "l" #'dired-find-alternate-file
+        :nv "u" #'dired-unmark
+        :n "<tab>" #'dired-subtree-toggle
+        :n "<C-tab>" #'dired-subtree-remove
+        :n "<backtab>" #'dired-subtree-cycle))
+
 (use-package! golden-ratio
   :init
   (golden-ratio-mode 1)
@@ -24,13 +40,14 @@
 
 (after! org
   (setq org-directory "~/Sync/org"
+        org-refile-targets '((org-agenda-files :maxlevel . 3))
+        org-agenda-files (list org-directory)
+        org-agenda-span (quote month)
+        org-refile-allow-creating-parent-nodes 'confirm
         org-archive-location (concat org-directory "/archive.org::")))
 
-(map! :map dired-mode-map
-      :n "h" 'dired-up-directory
-      :n "l" 'dired-find-alternate-file)
 
-(append (quote ("i" "Inbox" plain (file "~/org/inbox.org") "")) org-capture-templates)
-
-(after! treemacs
-  (setq doom-themes-treemacs-theme "doom-colors"))
+;; (after! treemacs
+;;   (setq doom-themes-treemacs-theme "doom-colors"
+;;         treemacs-is-never-other-window nil
+;;         treemacs-follow-mode t))

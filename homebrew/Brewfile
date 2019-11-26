@@ -5,6 +5,8 @@ brew "mas"
 brew "stow"
 brew "whichspace"
 brew "postgresql"
+brew "ripgrep"
+brew "wget"
 
 tap "d12frosted/emacs-plus"
 brew "emacs-plus"

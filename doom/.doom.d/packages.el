@@ -8,3 +8,6 @@
 
 (package! all-the-icons-ivy)
 (package! golden-ratio)
+(package! dired-subtree)
+
+(disable-packages! evil-snipe)
