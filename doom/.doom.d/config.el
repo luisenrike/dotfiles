@@ -43,6 +43,13 @@
 ;; spacemacs
 (setq doom-localleader-key ",")
 
+(map! :localleader
+      :map ruby-mode-map
+      "ss" #'ruby-switch-to-inf
+      "sl" #'ruby-send-line
+      "sb" #'ruby-send-buffer
+      "sB" #'ruby-send-block)
+
 (map! :leader
       "ft" #'+treemacs/toggle
       :nv ";"  #'evilnc-comment-operator)
