@@ -2,9 +2,15 @@
 
 ;; Place your private configuration here
 
-(setq
- doom-theme 'doom-peacock
- +workspaces-on-switch-project-behavior nil)
+(setq doom-theme 'doom-peacock
+      +workspaces-on-switch-project-behavior nil
+      tab-width 2
+      web-mode-markup-indent-offset 2
+      js-indent-level 2
+      typescript-indent-level 2)
+
+(after! smartparens
+  (smartparens-global-mode -1))
 
 ;; dired
 (map! :leader
@@ -24,8 +30,8 @@
         :n "<backtab>" #'dired-subtree-cycle))
 
 (evil-define-key* 'motion 'global
-    "zh" #'hs-hide-block
-    "zs" #'hs-show-block)
+  "zh" #'hs-hide-block
+  "zs" #'hs-show-block)
 
 (map! :leader
       :prefix "z"
@@ -71,7 +77,7 @@
 ;;                   select-window-5))))
 
 (after! org
-  (setq org-directory "~/Sync/org"
+  (setq org-directory "/Volumes/VC/Sync/org"
         org-refile-targets '((org-agenda-files :maxlevel . 3))
         org-agenda-files (list org-directory)
         org-agenda-span (quote month)
