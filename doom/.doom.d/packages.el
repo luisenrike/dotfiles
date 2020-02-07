@@ -9,6 +9,5 @@
 (package! all-the-icons-ivy)
 ;; (package! golden-ratio)
 (package! dired-subtree)
-(package! ob-ledger)
 
 (disable-packages! evil-snipe)

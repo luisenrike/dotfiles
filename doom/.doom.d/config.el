@@ -2,12 +2,18 @@
 
 ;; Place your private configuration here
 
-(setq doom-theme 'doom-peacock
-      +workspaces-on-switch-project-behavior nil
+
+(setq +workspaces-on-switch-project-behavior nil
+      doom-theme 'doom-dark+
+      ;; doom-theme 'doom-city-lights
+      ;; doom-theme 'doom-peacock
       tab-width 2
       web-mode-markup-indent-offset 2
       js-indent-level 2
       typescript-indent-level 2)
+
+(after! magit
+  (setq magit-display-buffer-function #'magit-display-buffer-fullframe-status-v1))
 
 (after! smartparens
   (smartparens-global-mode -1))
@@ -80,7 +86,6 @@
   (setq org-directory "/Volumes/VC/Sync/org"
         org-refile-targets '((org-agenda-files :maxlevel . 3))
         org-agenda-files (list org-directory)
-        org-agenda-span (quote month)
         org-refile-allow-creating-parent-nodes 'confirm
         org-archive-location (concat org-directory "/archive.org::")))
 
